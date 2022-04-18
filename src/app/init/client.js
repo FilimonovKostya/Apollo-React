@@ -1,9 +1,10 @@
 // Core
-import {ApolloClient} from "apollo-boost";
+import {ApolloClient, InMemoryCache} from "@apollo/client";
 
 // GraphQL Server
 const uri = "https://funded-pet-library.moonhighway.com/"
 
-export const client = new ApolloClient(({
-    uri
-}))
+export const client = new ApolloClient({
+    uri,
+    cache: new InMemoryCache()
+})

@@ -5,6 +5,4 @@ import { loader } from 'graphql.macro';
 // Quires
 const queryAvailablePets = loader('./gql/queryAvailablePets.graphql')
 
-export const useQueryAvailablePets = () => {
-    return useQuery(queryAvailablePets)
-}
+export const useQueryAvailablePets = () => useQuery(queryAvailablePets)

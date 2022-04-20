@@ -13,11 +13,11 @@ export const List = () => {
             <h1>Customer List</h1>
             {loadingJsx}
             {errorJsx}
-            {allCustomers.map(({username, name, dateCreated}, index) => <p key={index}>
-                <span>Username: {username}</span>
-                <span>Name: {name}</span>
-                <span>dateCreated: {dateCreated}</span>
-            </p>)}
+            <p>
+                <span>Username: {allCustomers?.username}</span>
+                <span>Name: {allCustomers?.name}</span>
+                <span>dateCreated: {allCustomers?.dateCreated}</span>
+            </p>
         </>
     )
 }

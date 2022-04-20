@@ -7,7 +7,7 @@ const queryAllCustomers = loader('./gql/queryAllCustomers.graphql')
 export const useQueryAllCustomers = () => {
     const {error, loading, data} = useQuery(queryAllCustomers)
 
-    const allCustomers = data ? data.allCustomers : []
+    const allCustomers = data ? data.allCustomers[0] : null
 
     return {error, loading , allCustomers}
 }

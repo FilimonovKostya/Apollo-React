@@ -1,7 +1,7 @@
 import React from "react";
 
 // Hooks
-import {useQueryAllAvailablePets} from "./hooks/useAllAvailablePets";
+import {useQueryAllAvailablePets} from "./hooks/useQueryAllAvailablePets";
 
 export const SpecialList = () => {
     const {getAllAvailablePets, pets, loading, error} = useQueryAllAvailablePets()

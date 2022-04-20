@@ -9,7 +9,7 @@ export const List = () => {
     const errorJsx = error && <p>We have a error</p>
 
     return (
-        <>x
+        <>
             <h1>Customer List</h1>
             {loadingJsx}
             {errorJsx}

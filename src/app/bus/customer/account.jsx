@@ -2,13 +2,23 @@ import React from "react";
 import {useCustomer} from "./hooks/useCustomer";
 
 export const Account = () => {
-    const {userData: {input: {name, password, username}}, handleChange} = useCustomer()
+    const {userData: {input}, handleChange, sendData} = useCustomer()
+
+    const registrationHandler = () => {
+        sendData()
+    }
 
     return (
         <>
-            <input value={name} onChange={handleChange} type="text" name={'name'} placeholder={'name'}/>
-            <input value={password} onChange={handleChange} type="text" name={'password'} placeholder={'password'}/>
-            <input value={username} onChange={handleChange} type="text" name={'username'} placeholder={'user name'}/>
+            <h1>Registration</h1>
+            <input value={input.name} onChange={handleChange} type="text" name={'name'} placeholder={'name'}/>
+            <br/>
+            <input value={input.password} onChange={handleChange} type="text" name={'password'} placeholder={'password'}/>
+            <br/>
+            <input value={input.username} onChange={handleChange} type="text" name={'username'} placeholder={'user name'}/>
+            <br/>
+
+            <button type={'submit'} onClick={registrationHandler}>Registration</button>
         </>
     )
 

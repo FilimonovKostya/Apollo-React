@@ -9,11 +9,15 @@ export const useLogin = () => {
     const [inputData, setInputData] = useState({username: '', password: ''})
 
     const onInputHandler = (event) => {
+        event.persist()
+
         setInputData((prevState => ({
             ...prevState,
             [event.target.name]: event.target.value
         })))
     }
+
+    console.log('DATA IN MY HOOK', data)
 
 
     const setLogin = async () => {

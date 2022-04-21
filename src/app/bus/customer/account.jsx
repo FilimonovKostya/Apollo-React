@@ -2,9 +2,9 @@ import React from "react";
 import {useCustomer} from "./hooks/useCustomer";
 
 export const Account = () => {
-    const {userData: {input}, handleChange, sendData, createdAccount} = useCustomer()
+    const {userData: {input}, handleChange, sendData, data} = useCustomer()
 
-    console.log('createdAccount ---->>', createdAccount)
+    console.log('data ---->>', data)
 
     return (
         <>

@@ -5,7 +5,7 @@ import {useMutation} from "@apollo/client";
 const mutationCustomer = loader('./gql/mutationCustomer.graphql')
 
 export const useCustomer = () => {
-    const [setRegistration, {data}] = useMutation(mutationCustomer)
+    const [setRegistration, {data, error}] = useMutation(mutationCustomer)
 
     const [userData, setUserData] = useState({
         input: {
@@ -15,9 +15,12 @@ export const useCustomer = () => {
         }
     })
 
+    console.log('ERRRRRRRR', {error})
+    console.log('DAta in Hoook', data)
+
 
     const handleChange = (event) => {
-        event.preventDefault()
+        event.persist()
 
         setUserData((prevState => ({
             input: {
@@ -35,6 +38,6 @@ export const useCustomer = () => {
             .catch(err => console.log(err))
     }
 
-    return {userData, handleChange, sendData}
+    return {userData, handleChange, sendData, data}
 
 }

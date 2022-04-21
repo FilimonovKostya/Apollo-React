@@ -2,11 +2,9 @@ import React from "react";
 import {useCustomer} from "./hooks/useCustomer";
 
 export const Account = () => {
-    const {userData: {input}, handleChange, sendData} = useCustomer()
+    const {userData: {input}, handleChange, sendData, createdAccount} = useCustomer()
 
-    const registrationHandler = () => {
-        sendData()
-    }
+    console.log('createdAccount ---->>', createdAccount)
 
     return (
         <>
@@ -18,7 +16,7 @@ export const Account = () => {
             <input value={input.username} onChange={handleChange} type="text" name={'username'} placeholder={'user name'}/>
             <br/>
 
-            <button type={'submit'} onClick={registrationHandler}>Registration</button>
+            <button type={'submit'} onClick={sendData}>Registration</button>
         </>
     )
 

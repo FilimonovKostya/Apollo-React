@@ -9,9 +9,9 @@ export const useCustomer = () => {
 
     const [userData, setUserData] = useState({
         input: {
-            name: 'Name',
-            username: 'UserName',
-            password: 'Password'
+            name: '',
+            password: '',
+            username: '',
         }
     })
 
@@ -24,9 +24,7 @@ export const useCustomer = () => {
                 ...prevState.input,
                 [event.target.name]: event.target.value
             }
-
         })))
-
     }
 
     const sendData = () => {
@@ -34,6 +32,7 @@ export const useCustomer = () => {
 
         setRegistration({variables: {input}})
             .then(res => console.log(res))
+            .catch(err => console.log(err))
     }
 
     return {userData, handleChange, sendData}

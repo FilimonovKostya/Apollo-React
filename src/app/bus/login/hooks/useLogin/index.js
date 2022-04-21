@@ -15,22 +15,23 @@ export const useLogin = () => {
         })))
     }
 
-    console.log('dataaaaaaaaaa', data)
 
-
-    const setLogin = () => {
+    const setLogin = async () => {
         const {username, password} = inputData
-        login({
+        const res = await login({
             variables: {
                 username,
                 password
             }
         })
-            .then(res => {
-                console.log(res)
-                localStorage.setItem("token", res.data?.logIn?.token)
-            })
-            .catch(err => console.log({err}))
+
+        try {
+            localStorage.setItem("token", res.data?.logIn?.token)
+        } catch (e) {
+            console.log('Errr', {e})
+        }
+
+
     }
 
     return {inputData, onInputHandler, setLogin, data}

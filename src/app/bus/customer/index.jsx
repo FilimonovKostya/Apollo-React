@@ -1,12 +1,12 @@
 import React from "react";
-import {List} from "./list";
-import {Account} from "./account";
+import {Login} from "../login";
 
 export const Customer = () => {
     return (
         <>
-            <Account/>
-            <List/>
+            <Login/>
+            {/*<Account/>*/}
+            {/*<List/>*/}
         </>
     )
 }

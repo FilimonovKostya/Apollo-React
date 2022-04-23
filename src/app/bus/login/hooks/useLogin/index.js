@@ -8,6 +8,7 @@ export const useLogin = () => {
     const [login, {data, loading, error}] = useMutation(mutationLogin)
     const [inputData, setInputData] = useState({username: '', password: ''})
 
+
     const onInputHandler = (event) => {
         event.persist()
 
@@ -16,9 +17,6 @@ export const useLogin = () => {
             [event.target.name]: event.target.value
         })))
     }
-
-    console.log('DATA IN MY HOOK', data)
-
 
     const setLogin = async () => {
         const {username, password} = inputData
@@ -30,13 +28,15 @@ export const useLogin = () => {
         })
 
         try {
-            localStorage.setItem("token", res.data?.logIn?.token)
+            localStorage.setItem("token", res.data.logIn?.token)
         } catch (e) {
             console.log('Errr', {e})
         }
 
-
     }
 
-    return {inputData, onInputHandler, setLogin, data}
+    const logIn = data?.logIn
+
+
+    return {inputData, onInputHandler, setLogin, logIn, loading, error}
 }

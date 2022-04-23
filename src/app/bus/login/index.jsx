@@ -2,9 +2,11 @@ import React from "react";
 import {useLogin} from "./hooks/useLogin";
 
 export const Login = () => {
-    const {inputData: {username, password}, onInputHandler, setLogin, data} = useLogin()
+    const {inputData: {username, password}, onInputHandler, setLogin, logIn, error, loading} = useLogin()
 
-    console.log('DATAAA', data)
+
+    const errorJsx = error && <span><b>{error.message}</b></span>
+    const loadingJSX = loading ? <span>Loading...</span> : null
 
     return (
         <>
@@ -14,6 +16,11 @@ export const Login = () => {
                 <input type="text" value={password} onChange={onInputHandler} name={'password'} placeholder={'password'}/>
                 <button type={"submit"} onClick={() => setLogin()}>Login</button>
             </div>
+            <p>Customer user name: {logIn?.customer?.username}</p>
+            <p>Customer name: {logIn?.customer?.name}</p>
+            <p>Customer token: {logIn?.token}</p>
+            {errorJsx}
+            {loadingJSX}
         </>
     )
 

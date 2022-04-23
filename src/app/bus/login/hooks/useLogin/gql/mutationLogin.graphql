@@ -4,6 +4,7 @@ mutation login($username: ID!, $password:String!){
         customer {
             username
             name
+
         }
     }
 }

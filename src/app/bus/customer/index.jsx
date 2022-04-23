@@ -5,8 +5,8 @@ import {Account} from "./account";
 export const Customer = () => {
     return (
         <>
-            {/*<Login/>*/}
-            <Account/>
+            <Login/>
+            {/*<Account/>*/}
             {/*<List/>*/}
         </>
     )
